@@ -96,12 +96,12 @@ Next.js Server
       </section>
 
       <section className="pb-24">
-        <div className="tile tile-static p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold">Punya operasional<br/>yang masih manual?</h2>
+        <div className="tile tile-static p-6 sm:p-8 md:p-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold">Punya operasional<br/>yang masih manual?</h2>
           <p className="text-[#a1a1aa] mt-5 max-w-xl mx-auto text-sm">Booking, stok, nota, sampai laporan keuangan bisa jalan dari satu sistem. Ceritakan alur bisnisnya, saya bantu petakan dan bangun.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="https://wa.me/6285603324143" className="px-7 py-4 rounded-full text-sm font-semibold text-[#060607]" style={{background:'var(--lime)'}}>WhatsApp 085603324143</a>
-            <a href="/samaqu" className="px-7 py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">Lihat case study SAMAQU →</a>
+          <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3">
+            <a href="https://wa.me/6285603324143" className="inline-flex w-full sm:w-auto items-center justify-center text-center px-6 sm:px-7 py-3.5 sm:py-4 rounded-full text-sm font-semibold text-[#060607]" style={{background:'var(--lime)'}}>WhatsApp 085603324143</a>
+            <a href="/samaqu" className="inline-flex w-full sm:w-auto items-center justify-center text-center px-6 sm:px-7 py-3.5 sm:py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">Lihat case study SAMAQU →</a>
           </div>
         </div>
       </section>

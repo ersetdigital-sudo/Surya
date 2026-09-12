@@ -1,7 +1,26 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const close = () => setMenuOpen(false)
+    const onDown = (e) => {
+      const t = e.target
+      if (t instanceof Element && (t.closest('#mobile-nav') || t.closest('[aria-controls="mobile-nav"]'))) return
+      close()
+    }
+    const onKey = (e) => { if (e.key === 'Escape') close() }
+    document.addEventListener('pointerdown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [menuOpen])
+
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!window.gsap) return;
@@ -133,19 +152,38 @@ export default function Home() {
       </Head>
 
       <header className="sticky top-0 z-50">
-        <div className="mx-auto max-w-[1200px] px-5 pt-4">
-          <div className="glass rounded-full h-14 px-5 flex items-center justify-between">
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-5 pt-4">
+          <div className="glass rounded-[26px] md:rounded-full h-14 px-4 sm:px-5 flex items-center justify-between gap-3">
+            <a href="#top" className="md:hidden text-[13px] font-semibold tracking-tight whitespace-nowrap">SURYA<span style={{color:'var(--lime)'}}>.</span></a>
             <nav className="hidden md:flex items-center gap-1 text-[13px]">
               <a href="#about" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">About</a>
               <a href="#stack" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Stack</a>
               <a href="#work" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Work</a>
               <a href="#exp" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Experience</a>
             </nav>
-            <div className="ml-auto flex items-center gap-2">
-              <a href="/cv" className="text-[13px] px-4 py-2 rounded-full border border-white/12 hover:bg-white/5 transition">↓ CV</a>
-              <a href="#contact" className="text-[13px] font-medium px-4 py-2 rounded-full text-[#060607]" style={{background:'var(--lime)'}}>Hire me</a>
+            <div className="ml-auto hidden md:flex items-center gap-2">
+              <a href="/cv" className="text-[13px] px-4 py-2 rounded-full border border-white/12 hover:bg-white/5 transition whitespace-nowrap">↓ CV</a>
+              <a href="#contact" className="text-[13px] font-medium px-4 py-2 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+            </div>
+            <div className="ml-auto flex md:hidden items-center gap-2">
+              <a href="#contact" onClick={()=>setMenuOpen(false)} className="text-[13px] font-medium px-4 py-2 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+              <button type="button" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'} className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/12 hover:bg-white/5 active:bg-white/10 transition">
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                  {menuOpen
+                    ? <><path d="M5.5 5.5l13 13" /><path d="M18.5 5.5l-13 13" /></>
+                    : <><path d="M4 7.5h16" /><path d="M4 12h16" /><path d="M4 16.5h16" /></>}
+                </svg>
+              </button>
             </div>
           </div>
+
+          <nav id="mobile-nav" aria-label="Navigasi utama" className={`${menuOpen ? 'flex' : 'hidden'} md:hidden absolute left-4 right-4 sm:left-5 sm:right-5 top-full z-50 mt-2 flex-col rounded-3xl p-2 text-[14px] shadow-2xl glass`}>
+            <a href="#about" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">About</a>
+            <a href="#stack" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Stack</a>
+            <a href="#work" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Work</a>
+            <a href="#exp" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Experience</a>
+            <a href="/cv" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition border-t border-white/8 mt-1">↓ Download CV</a>
+          </nav>
         </div>
       </header>
 
@@ -170,10 +208,10 @@ export default function Home() {
               <p className="text-lg md:text-xl text-[#a1a1aa] leading-relaxed">
               Saya <span className="text-white font-medium">Surya</span> — Full-Stack Software Engineer yang membangun aplikasi web production untuk e-commerce dan business systems. Saya menangani proses end-to-end mulai dari database design, business logic, frontend, backend/API, authentication, deployment, hingga maintenance. Didukung <span className="text-white">lebih dari 10 tahun</span> pengalaman menjalankan bisnis e-commerce sendiri, saya membangun software yang dirancang untuk menyelesaikan masalah operasional nyata, bukan sekadar demo.
               </p>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <a href="#work" className="mag px-6 py-3.5 rounded-full text-sm font-semibold text-[#060607]" style={{background:'var(--lime)'}}>Lihat pekerjaan saya →</a>
-                <a href="https://wa.me/6285603324143" className="mag px-6 py-3.5 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">WhatsApp</a>
-                <a href="/cv" className="mag px-6 py-3.5 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">Download CV</a>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mt-8">
+                <a href="#work" className="mag inline-flex items-center justify-center text-center px-6 py-3.5 rounded-full text-sm font-semibold text-[#060607]" style={{background:'var(--lime)'}}>Lihat pekerjaan saya →</a>
+                <a href="https://wa.me/6285603324143" className="mag inline-flex items-center justify-center text-center px-6 py-3.5 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">WhatsApp</a>
+                <a href="/cv" className="mag inline-flex items-center justify-center text-center px-6 py-3.5 rounded-full text-sm border border-white/12 hover:bg-white/5 transition">Download CV</a>
               </div>
             </div>
           </div>
@@ -451,20 +489,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-[1200px] px-5 pb-24">
-          <div className="tile p-10 md:p-16 text-center rv">
+        <section id="contact" className="mx-auto max-w-[1200px] px-4 sm:px-5 pb-24">
+          <div className="tile p-6 sm:p-10 md:p-16 text-center rv">
             <div className="kicker mb-4">Open to selected projects</div>
             <div className="mono text-[11px] tracking-[.18em] mb-5" style={{color:'var(--lime)'}}>LET'S BUILD SOMETHING USEFUL</div>
-            <h2 className="text-4xl md:text-6xl font-extrabold leading-[.95]">Punya sistem<br/><span className="outline-word">yang ingin dibangun?</span></h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[.95] break-words">Punya sistem<br/><span className="outline-word">yang ingin dibangun?</span></h2>
             <p className="mt-8 text-[#a1a1aa] max-w-2xl mx-auto leading-relaxed">Ceritakan kebutuhan atau tantangan bisnis Anda. Saya siap membantu menerjemahkannya menjadi solusi software yang terstruktur, production-ready, dan mudah dikembangkan.</p>
             <p className="mt-4 text-[#71717a] max-w-xl mx-auto text-sm">Available for full-time roles, freelance projects, and selected client collaborations.</p>
-            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-              <a href="https://wa.me/6285603324143?text=Halo%20Surya%2C%20saya%20tertarik%20mendiskusikan%20project%20software%20dengan%20Anda." target="_blank" rel="noopener noreferrer" aria-label="Start a conversation via WhatsApp" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold text-[#060607] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9f24a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]" style={{background:'var(--lime)'}}>
+            <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-3">
+              <a href="https://wa.me/6285603324143?text=Halo%20Surya%2C%20saya%20tertarik%20mendiskusikan%20project%20software%20dengan%20Anda." target="_blank" rel="noopener noreferrer" aria-label="Start a conversation via WhatsApp" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold text-[#060607] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9f24a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]" style={{background:'var(--lime)'}}>
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Start a Conversation
               </a>
-              <a href="mailto:ersetdigital@gmail.com" aria-label="Send an email to Surya" className="inline-flex items-center justify-center px-7 py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]">Send an Email</a>
-              <a href="https://github.com/ersetdigital-sudo" target="_blank" rel="noopener noreferrer" aria-label="View Surya's GitHub profile" className="inline-flex items-center justify-center px-7 py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]">View GitHub ↗</a>
+              <a href="mailto:ersetdigital@gmail.com" aria-label="Send an email to Surya" className="inline-flex w-full sm:w-auto items-center justify-center px-7 py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]">Send an Email</a>
+              <a href="https://github.com/ersetdigital-sudo" target="_blank" rel="noopener noreferrer" aria-label="View Surya's GitHub profile" className="inline-flex w-full sm:w-auto items-center justify-center px-7 py-4 rounded-full text-sm border border-white/12 hover:bg-white/5 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060607]">View GitHub ↗</a>
             </div>
             <p className="mt-8 mono text-[11px] text-[#71717a]">Production systems · Business-focused engineering · End-to-end ownership</p>
           </div>
