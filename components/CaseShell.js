@@ -9,7 +9,7 @@ export default function CaseShell({ title, description, children }) {
         <meta name="description" content={description} />
       </Head>
 
-      <header className="sticky top-0 z-50">
+      <header className="site-head">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-5 pt-4">
           <div className="glass rounded-[26px] md:rounded-full h-14 px-4 sm:px-5 flex items-center justify-between gap-3">
             <a href="/#work" className="text-[13px] text-[#a1a1aa] hover:text-white transition whitespace-nowrap shrink-0">←<span className="hidden sm:inline"> Semua project</span><span className="sm:hidden"> Back</span></a>

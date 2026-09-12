@@ -151,23 +151,24 @@ export default function Home() {
         <meta name="description" content="Full-Stack Software Engineer. TypeScript, Next.js, React, Supabase/PostgreSQL. Membangun e-commerce, POS, dashboard, dan automation untuk bisnis nyata." />
       </Head>
 
-      <header className="sticky top-0 z-50">
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-5 pt-4">
-          <div className="glass rounded-[26px] md:rounded-full h-14 px-4 sm:px-5 flex items-center justify-between gap-3">
+      <header className="site-head">
+        <div className={`nav-scrim ${menuOpen ? 'open' : ''}`} onClick={()=>setMenuOpen(false)} aria-hidden="true"></div>
+        <div className="relative z-50 mx-auto max-w-[1200px] px-4 sm:px-5 pt-4">
+          <div className="glass relative rounded-[26px] md:rounded-full h-14 px-4 sm:px-5 flex items-center justify-between gap-3">
             <a href="#top" className="md:hidden text-[13px] font-semibold tracking-tight whitespace-nowrap">SURYA<span style={{color:'var(--lime)'}}>.</span></a>
-            <nav className="hidden md:flex items-center gap-1 text-[13px]">
+            <nav aria-label="Navigasi utama" className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 text-[13px]">
               <a href="#about" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">About</a>
               <a href="#stack" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Stack</a>
               <a href="#work" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Work</a>
               <a href="#exp" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Experience</a>
             </nav>
             <div className="ml-auto hidden md:flex items-center gap-2">
-              <a href="/cv" className="text-[13px] px-4 py-2 rounded-full border border-white/12 hover:bg-white/5 transition whitespace-nowrap">↓ CV</a>
-              <a href="#contact" className="text-[13px] font-medium px-4 py-2 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+              <a href="/cv" className="inline-flex h-11 items-center text-[13px] px-4 rounded-full border border-white/12 hover:bg-white/5 transition whitespace-nowrap">↓ CV</a>
+              <a href="#contact" className="inline-flex h-11 items-center text-[13px] font-medium px-4 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
             </div>
             <div className="ml-auto flex md:hidden items-center gap-2">
-              <a href="#contact" onClick={()=>setMenuOpen(false)} className="text-[13px] font-medium px-4 py-2 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
-              <button type="button" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'} className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/12 hover:bg-white/5 active:bg-white/10 transition">
+              <a href="#contact" onClick={()=>setMenuOpen(false)} className="inline-flex h-11 items-center text-[13px] font-medium px-4 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+              <button type="button" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'} className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 hover:bg-white/5 active:bg-white/10 transition">
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                   {menuOpen
                     ? <><path d="M5.5 5.5l13 13" /><path d="M18.5 5.5l-13 13" /></>
@@ -177,12 +178,12 @@ export default function Home() {
             </div>
           </div>
 
-          <nav id="mobile-nav" aria-label="Navigasi utama" className={`${menuOpen ? 'flex' : 'hidden'} md:hidden absolute left-4 right-4 sm:left-5 sm:right-5 top-full z-50 mt-2 flex-col rounded-3xl p-2 text-[14px] shadow-2xl glass`}>
-            <a href="#about" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">About</a>
-            <a href="#stack" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Stack</a>
-            <a href="#work" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Work</a>
-            <a href="#exp" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Experience</a>
-            <a href="/cv" onClick={()=>setMenuOpen(false)} className="px-4 py-3 rounded-2xl text-[#a1a1aa] hover:text-white hover:bg-white/5 transition border-t border-white/8 mt-1">↓ Download CV</a>
+          <nav id="mobile-nav" aria-label="Navigasi mobile" className={`mnav ${menuOpen ? 'open' : ''}`}>
+            <a href="#about" onClick={()=>setMenuOpen(false)}>About</a>
+            <a href="#stack" onClick={()=>setMenuOpen(false)}>Stack</a>
+            <a href="#work" onClick={()=>setMenuOpen(false)}>Work</a>
+            <a href="#exp" onClick={()=>setMenuOpen(false)}>Experience</a>
+            <a href="/cv" onClick={()=>setMenuOpen(false)}>↓ Download CV</a>
           </nav>
         </div>
       </header>
@@ -493,7 +494,7 @@ export default function Home() {
           <div className="tile p-6 sm:p-10 md:p-16 text-center rv">
             <div className="kicker mb-4">Open to selected projects</div>
             <div className="mono text-[11px] tracking-[.18em] mb-5" style={{color:'var(--lime)'}}>LET'S BUILD SOMETHING USEFUL</div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[.95] break-words">Punya sistem<br/><span className="outline-word">yang ingin dibangun?</span></h2>
+            <h2 className="cta-title font-extrabold">Punya sistem<br/><span className="outline-word">yang ingin dibangun?</span></h2>
             <p className="mt-8 text-[#a1a1aa] max-w-2xl mx-auto leading-relaxed">Ceritakan kebutuhan atau tantangan bisnis Anda. Saya siap membantu menerjemahkannya menjadi solusi software yang terstruktur, production-ready, dan mudah dikembangkan.</p>
             <p className="mt-4 text-[#71717a] max-w-xl mx-auto text-sm">Available for full-time roles, freelance projects, and selected client collaborations.</p>
             <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-3">
