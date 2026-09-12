@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="15" fill="#060607"/>
+  <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="14" fill="none" stroke="#d9f24a" stroke-opacity=".35" stroke-width="2.5"/>
+  <text x="32" y="32" text-anchor="middle" dominant-baseline="central"
+        font-family="'Bricolage Grotesque','Geist',system-ui,-apple-system,'Segoe UI',sans-serif"
+        font-weight="800" font-size="42" letter-spacing="-2" fill="#d9f24a">S</text>
+  <circle cx="47" cy="47" r="3.2" fill="#a78bfa"/>
+</svg>
