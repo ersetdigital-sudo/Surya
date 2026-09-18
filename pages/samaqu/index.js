@@ -32,30 +32,40 @@ export default function Samaqu() {
       <section className="pb-20 grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <h2 className="text-3xl font-bold">Galeri<span style={{color:'var(--lime)'}}>.</span></h2>
-          <p className="text-sm text-[#71717a] mt-4 leading-relaxed">Tangkapan layar langsung dari situs production, bukan mockup.</p>
+          <p className="text-sm text-[#71717a] mt-4 leading-relaxed">Tangkapan layar langsung dari situs production, bukan mockup. Klik untuk lihat ukuran penuh.</p>
         </div>
         <div className="md:col-span-8">
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-            <figure className="sm:col-span-2 tile">
-              <img src="/projects/samaqu/01-home.jpg" alt="Halaman utama SAMAQU: hero busana muslim pria premium dengan tombol Lihat Koleksi dan Create Your Price" width="1440" height="1000" className="block w-full h-auto" />
-              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Home — hero &amp; alur pemesanan</figcaption>
+            <figure className="tile">
+              <a href="/projects/samaqu/01-home.jpg" target="_blank" rel="noopener noreferrer" className="block" aria-label="Buka screenshot halaman utama ukuran penuh">
+                <img src="/projects/samaqu/01-home.jpg" alt="Halaman utama SAMAQU: hero busana muslim pria premium dengan tombol Lihat Koleksi dan Create Your Price" width="1440" height="1000" className="block w-full aspect-[16/10] object-cover object-top" />
+              </a>
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 flex items-center min-h-[44px] border-t border-white/8">Home — hero</figcaption>
             </figure>
             <figure className="tile">
-              <img src="/projects/samaqu/02-create-your-price.jpg" alt="Halaman Create Your Price: penjelasan tiga langkah dan penggeser untuk menentukan harga sendiri" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
-              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Create Your Price — pelanggan menentukan harga</figcaption>
+              <a href="/projects/samaqu/02-create-your-price.jpg" target="_blank" rel="noopener noreferrer" className="block" aria-label="Buka screenshot Create Your Price ukuran penuh">
+                <img src="/projects/samaqu/02-create-your-price.jpg" alt="Halaman Create Your Price: penjelasan tiga langkah dan penggeser untuk menentukan harga sendiri" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full aspect-[16/10] object-cover object-top" />
+              </a>
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 flex items-center min-h-[44px] border-t border-white/8">Create Your Price</figcaption>
             </figure>
             <figure className="tile">
-              <img src="/projects/samaqu/03-testimoni.jpg" alt="Halaman testimoni berisi ulasan pelanggan SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
-              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Testimoni customer</figcaption>
+              <a href="/projects/samaqu/03-testimoni.jpg" target="_blank" rel="noopener noreferrer" className="block" aria-label="Buka screenshot halaman testimoni ukuran penuh">
+                <img src="/projects/samaqu/03-testimoni.jpg" alt="Halaman testimoni berisi ulasan pelanggan SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full aspect-[16/10] object-cover object-top" />
+              </a>
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 flex items-center min-h-[44px] border-t border-white/8">Testimoni customer</figcaption>
             </figure>
-            <figure className="sm:col-span-2 tile">
-              <img src="/projects/samaqu/04-sama-quran.jpg" alt="Halaman SAMA-QURAN, lini produk turunan dari SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
-              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">SAMA-QURAN — lini produk turunan</figcaption>
+            <figure className="tile">
+              <a href="/projects/samaqu/04-sama-quran.jpg" target="_blank" rel="noopener noreferrer" className="block" aria-label="Buka screenshot halaman SAMA-QURAN ukuran penuh">
+                <img src="/projects/samaqu/04-sama-quran.jpg" alt="Halaman SAMA-QURAN, lini produk turunan dari SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full aspect-[16/10] object-cover object-top" />
+              </a>
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 flex items-center min-h-[44px] border-t border-white/8">SAMA-QURAN</figcaption>
             </figure>
             <div className="sm:col-span-2 grid sm:grid-cols-3 gap-4 sm:gap-5 items-start">
               <figure className="tile">
-                <img src="/projects/samaqu/05-mobile.jpg" alt="Tampilan mobile halaman utama SAMAQU di layar ponsel" width="430" height="900" loading="lazy" decoding="async" className="block w-full h-auto" />
-                <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Mobile — 430px</figcaption>
+                <a href="/projects/samaqu/05-mobile.jpg" target="_blank" rel="noopener noreferrer" className="block" aria-label="Buka screenshot tampilan mobile ukuran penuh">
+                  <img src="/projects/samaqu/05-mobile.jpg" alt="Tampilan mobile halaman utama SAMAQU di layar ponsel" width="430" height="900" loading="lazy" decoding="async" className="block w-full h-auto" />
+                </a>
+                <figcaption className="mono text-[11px] text-[#71717a] px-5 flex items-center min-h-[44px] border-t border-white/8">Mobile — 430px</figcaption>
               </figure>
               <div className="sm:col-span-2 space-y-4 sm:space-y-5">
                 <div className="tile tile-static p-6"><div className="kicker mb-2">Responsive</div><p className="text-sm text-[#a1a1aa]">Seluruh alur — katalog, create your price, sampai checkout — dipakai dari 430px sampai desktop tanpa alur terpisah.</p></div>
