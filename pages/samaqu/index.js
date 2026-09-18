@@ -26,6 +26,46 @@ export default function Samaqu() {
         <div className="tile tile-static p-6"><div className="kicker mb-2">Tipe</div><p className="text-sm text-[#f5f5f4]">Freelance / Client Project</p></div>
       </section>
 
+      {/* Tangkapan layar diambil langsung dari samaqu.id versi production (bukan mockup).
+          Gambar disimpan sebagai JPEG ~40-100 KB di public/projects/samaqu supaya halaman
+          tetap ringan, dan yang di bawah fold pakai loading="lazy". */}
+      <section className="pb-20 grid md:grid-cols-12 gap-8">
+        <div className="md:col-span-4">
+          <h2 className="text-3xl font-bold">Galeri<span style={{color:'var(--lime)'}}>.</span></h2>
+          <p className="text-sm text-[#71717a] mt-4 leading-relaxed">Tangkapan layar langsung dari situs production, bukan mockup.</p>
+        </div>
+        <div className="md:col-span-8">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+            <figure className="sm:col-span-2 tile">
+              <img src="/projects/samaqu/01-home.jpg" alt="Halaman utama SAMAQU: hero busana muslim pria premium dengan tombol Lihat Koleksi dan Create Your Price" width="1440" height="1000" className="block w-full h-auto" />
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Home — hero &amp; alur pemesanan</figcaption>
+            </figure>
+            <figure className="tile">
+              <img src="/projects/samaqu/02-create-your-price.jpg" alt="Halaman Create Your Price: penjelasan tiga langkah dan penggeser untuk menentukan harga sendiri" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Create Your Price — pelanggan menentukan harga</figcaption>
+            </figure>
+            <figure className="tile">
+              <img src="/projects/samaqu/03-testimoni.jpg" alt="Halaman testimoni berisi ulasan pelanggan SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Testimoni customer</figcaption>
+            </figure>
+            <figure className="sm:col-span-2 tile">
+              <img src="/projects/samaqu/04-sama-quran.jpg" alt="Halaman SAMA-QURAN, lini produk turunan dari SAMAQU" width="1440" height="1100" loading="lazy" decoding="async" className="block w-full h-auto" />
+              <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">SAMA-QURAN — lini produk turunan</figcaption>
+            </figure>
+            <div className="sm:col-span-2 grid sm:grid-cols-3 gap-4 sm:gap-5 items-start">
+              <figure className="tile">
+                <img src="/projects/samaqu/05-mobile.jpg" alt="Tampilan mobile halaman utama SAMAQU di layar ponsel" width="430" height="900" loading="lazy" decoding="async" className="block w-full h-auto" />
+                <figcaption className="mono text-[11px] text-[#71717a] px-5 py-4 border-t border-white/8">Mobile — 430px</figcaption>
+              </figure>
+              <div className="sm:col-span-2 space-y-4 sm:space-y-5">
+                <div className="tile tile-static p-6"><div className="kicker mb-2">Responsive</div><p className="text-sm text-[#a1a1aa]">Seluruh alur — katalog, create your price, sampai checkout — dipakai dari 430px sampai desktop tanpa alur terpisah.</p></div>
+                <div className="tile tile-static p-6"><div className="kicker mb-2">Dua jalur order</div><p className="text-sm text-[#a1a1aa]">Pelanggan bisa checkout sendiri lewat website, atau konsultasi ukuran dengan admin via WhatsApp. Keduanya berujung ke order yang sama di dashboard.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="pb-20 grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4"><h2 className="text-3xl font-bold">Konteks<span style={{color:'var(--lime)'}}>.</span></h2></div>
         <div className="md:col-span-8 space-y-4 text-[#a1a1aa] leading-relaxed">
