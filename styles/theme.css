@@ -32,7 +32,7 @@ header.site-head{position:sticky;top:0;z-index:60}
   background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.015) 45%,rgba(255,255,255,.03));
   transition:border-color .4s ease, transform .5s cubic-bezier(.2,.8,.2,1)}
 .tile:hover{border-color:rgba(217,242,74,.4);transform:translateY(-6px)}
-.tile:after{content:"";position:absolute;inset:0;border-radius:26px;opacity:0;transition:opacity .4s;
+.tile:after{content:"";position:absolute;inset:0;border-radius:26px;opacity:0;transition:opacity .4s;pointer-events:none;
   background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(217,242,74,.10), transparent 65%)}
 .tile:hover:after{opacity:1}
 .tile-static:hover{transform:none;border-color:var(--line)}
