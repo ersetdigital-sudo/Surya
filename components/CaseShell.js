@@ -13,7 +13,17 @@ export default function CaseShell({ title, description, children }) {
         <div className="mx-auto max-w-[1100px] px-4 sm:px-5 pt-4">
           <div className="glass rounded-[26px] md:rounded-full h-14 px-4 sm:px-5 flex items-center justify-between gap-3">
             <a href="/#work" className="text-[13px] text-[#a1a1aa] hover:text-white transition whitespace-nowrap shrink-0">←<span className="hidden sm:inline"> Semua project</span><span className="sm:hidden"> Back</span></a>
-            <div className="ml-auto flex items-center gap-2"><a href="/cv" className="text-[13px] px-3.5 sm:px-4 py-2 rounded-full border border-white/12 hover:bg-white/5 transition whitespace-nowrap">↓ CV</a><a href="https://wa.me/6285603324143" className="text-[13px] font-medium px-3.5 sm:px-4 py-2 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a></div>
+            <div className="ml-auto flex items-center gap-2">
+              <a href="/cv" className="nav-btn nav-btn--ghost">
+                <span className="nav-btn__icon">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 4.5v10" /><path d="m7.75 10.25 4.25 4.25 4.25-4.25" /><path d="M5 19.5h14" />
+                  </svg>
+                </span>
+                CV
+              </a>
+              <a href="https://wa.me/6285603324143" className="nav-btn nav-btn--primary">Hire me</a>
+            </div>
           </div>
         </div>
       </header>

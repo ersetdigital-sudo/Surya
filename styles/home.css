@@ -45,3 +45,33 @@ h1,h2,h3,.dsp{line-height:.95}
 .nav-scrim.open{opacity:1;pointer-events:auto}
 @media (min-width:768px){.mnav,.nav-scrim{display:none !important}}
 @media (prefers-reduced-motion:reduce){.mnav,.nav-scrim{transition:none}}
+
+/* tombol navbar — CSS sendiri biar glow, gradient, dan animasi ikon nggak
+   bergantung utility runtime (sama alasannya dengan .mnav di atas) */
+.nav-btn{display:inline-flex;align-items:center;gap:.5rem;height:2.5rem;padding:0 .9rem;
+  border-radius:999px;font-size:13px;font-weight:500;line-height:1;white-space:nowrap;color:#e4e4e7;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .3s,border-color .3s,box-shadow .3s,color .3s}
+.nav-btn:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+
+.nav-btn--ghost{border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
+.nav-btn--ghost:hover{border-color:rgba(255,255,255,.26);color:#fff;transform:translateY(-1px);
+  box-shadow:0 8px 22px -12px rgba(0,0,0,.95)}
+.nav-btn__icon{display:grid;place-items:center;width:1.5rem;height:1.5rem;
+  border:1px solid rgba(255,255,255,.09);border-radius:999px;background:rgba(255,255,255,.06);
+  transition:background-color .3s,border-color .3s,color .3s}
+.nav-btn__icon svg{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.nav-btn--ghost:hover .nav-btn__icon{background:rgba(217,242,74,.16);border-color:rgba(217,242,74,.4);color:var(--lime)}
+.nav-btn--ghost:hover .nav-btn__icon svg{transform:translateY(2px)}
+
+.nav-btn--primary{padding:0 1.15rem;color:#060607;font-weight:600;
+  background:linear-gradient(180deg,#e9ff74,#cfe93f);
+  box-shadow:0 8px 24px -12px rgba(217,242,74,.9),inset 0 1px 0 rgba(255,255,255,.45)}
+.nav-btn--primary:hover{transform:translateY(-1px);background:linear-gradient(180deg,#f0ff8a,#d6ec4c);
+  box-shadow:0 12px 30px -12px rgba(217,242,74,1),inset 0 1px 0 rgba(255,255,255,.55)}
+
+/* :active ditaruh paling akhir supaya feedback tekan tetap menang saat tombol di-hover */
+.nav-btn:active{transform:translateY(0) scale(.98)}
+/* di layar mobile tingginya disamakan dengan tombol hamburger (44px) */
+@media (max-width:767.98px){.nav-btn{height:2.75rem}}
+@media (prefers-reduced-motion:reduce){.nav-btn,.nav-btn__icon,.nav-btn__icon svg{transition:none}}

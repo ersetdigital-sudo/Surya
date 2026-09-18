@@ -163,11 +163,19 @@ export default function Home() {
               <a href="#exp" className="px-3 py-2 rounded-full text-[#a1a1aa] hover:text-white hover:bg-white/5 transition">Experience</a>
             </nav>
             <div className="ml-auto hidden md:flex items-center gap-2">
-              <a href="/cv" className="inline-flex h-11 items-center text-[13px] px-4 rounded-full border border-white/12 hover:bg-white/5 transition whitespace-nowrap">↓ CV</a>
-              <a href="#contact" className="inline-flex h-11 items-center text-[13px] font-medium px-4 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+              <span className="h-5 w-px bg-white/10" aria-hidden="true"></span>
+              <a href="/cv" className="nav-btn nav-btn--ghost">
+                <span className="nav-btn__icon">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 4.5v10" /><path d="m7.75 10.25 4.25 4.25 4.25-4.25" /><path d="M5 19.5h14" />
+                  </svg>
+                </span>
+                CV
+              </a>
+              <a href="#contact" className="nav-btn nav-btn--primary">Hire me</a>
             </div>
             <div className="ml-auto flex md:hidden items-center gap-2">
-              <a href="#contact" onClick={()=>setMenuOpen(false)} className="inline-flex h-11 items-center text-[13px] font-medium px-4 rounded-full text-[#060607] whitespace-nowrap" style={{background:'var(--lime)'}}>Hire me</a>
+              <a href="#contact" onClick={()=>setMenuOpen(false)} className="nav-btn nav-btn--primary">Hire me</a>
               <button type="button" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'} className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/12 hover:bg-white/5 active:bg-white/10 transition">
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                   {menuOpen
