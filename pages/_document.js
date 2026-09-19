@@ -15,26 +15,14 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdn.moda.app/runtime-libs/lenis-1.3.23/lenis.css"
-        />
+        <link rel="stylesheet" href="https://cdn.moda.app/runtime-libs/lenis-1.3.23/lenis.css" />
         <Script
           src="https://cdn.moda.app/runtime-libs/tailwind-browser-4.1.13-index.global.min.js"
           strategy="beforeInteractive"
         />
-        <Script
-          src="https://cdn.moda.app/runtime-libs/lenis-1.3.23/lenis.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          src="https://cdn.moda.app/runtime-libs/gsap-3.15/gsap.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          src="https://cdn.moda.app/runtime-libs/gsap-3.15/ScrollTrigger.min.js"
-          strategy="beforeInteractive"
-        />
+        <Script src="https://cdn.moda.app/runtime-libs/lenis-1.3.23/lenis.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.moda.app/runtime-libs/gsap-3.15/gsap.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.moda.app/runtime-libs/gsap-3.15/ScrollTrigger.min.js" strategy="beforeInteractive" />
       </Head>
       <body>
         <Main />

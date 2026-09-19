@@ -23,24 +23,24 @@ Dibangun dengan Next.js Pages Router tanpa dependency tambahan selain `next` / `
 
 ## Halaman
 
-| Rute | Isi |
-| --- | --- |
-| `/` | Halaman utama: hero, about, stack, 7 selected projects, experience, API & automation, contact |
-| `/cv` | CV satu halaman, siap di-print jadi PDF (`window.print()`) |
-| `/samaqu` | Case study **SAMAQU** — platform e-commerce menswear muslim, live di [samaqu.id](https://www.samaqu.id/) |
-| `/erlangga-rental` | Case study **Erlangga Rental Mobil** — booking, armada, pembayaran, laporan; PWA + OCR KTP |
-| `/ut-majene` | Case study **Dashboard Registrasi Mahasiswa UT Majene** — pipeline Excel → PostgreSQL, analytics, RBAC |
-| `/laptop-store` | Case study **Laptop Store Management System** — POS, service, inventory, purchasing, laporan keuangan |
+| Rute               | Isi                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| `/`                | Halaman utama: hero, about, stack, 7 selected projects, experience, API & automation, contact            |
+| `/cv`              | CV satu halaman, siap di-print jadi PDF (`window.print()`)                                               |
+| `/samaqu`          | Case study **SAMAQU** — platform e-commerce menswear muslim, live di [samaqu.id](https://www.samaqu.id/) |
+| `/erlangga-rental` | Case study **Erlangga Rental Mobil** — booking, armada, pembayaran, laporan; PWA + OCR KTP               |
+| `/ut-majene`       | Case study **Dashboard Registrasi Mahasiswa UT Majene** — pipeline Excel → PostgreSQL, analytics, RBAC   |
+| `/laptop-store`    | Case study **Laptop Store Management System** — POS, service, inventory, purchasing, laporan keuangan    |
 
 ## Stack
 
-| Lapisan | Dipakai |
-| --- | --- |
-| Framework | Next.js 14 (Pages Router), React 18 |
-| Styling | CSS global per-halaman di `styles/` + utility **Tailwind CSS 4** (browser runtime dari CDN) |
-| Motion | GSAP + ScrollTrigger, Lenis smooth scroll — `components/CaseMotion.js`, `pages/index.js` |
-| Font | Self-hosted di `public/fonts`: Geist, Geist Mono, Bricolage Grotesque, Barlow, IBM Plex Mono |
-| Hosting | Vercel (build otomatis dari branch `main`) |
+| Lapisan   | Dipakai                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------- |
+| Framework | Next.js 14 (Pages Router), React 18                                                          |
+| Styling   | CSS global per-halaman di `styles/` + utility **Tailwind CSS 4** (browser runtime dari CDN)  |
+| Motion    | GSAP + ScrollTrigger, Lenis smooth scroll — `components/CaseMotion.js`, `pages/index.js`     |
+| Font      | Self-hosted di `public/fonts`: Geist, Geist Mono, Bricolage Grotesque, Barlow, IBM Plex Mono |
+| Hosting   | Vercel (build otomatis dari branch `main`)                                                   |
 
 ## Menjalankan lokal
 
@@ -64,12 +64,21 @@ Tidak ada environment variable yang dibutuhkan.
 
 ### Scripts
 
-| Perintah | Fungsi |
-| --- | --- |
-| `npm run dev` | Development server di port 3000 |
-| `npm run build` | Build production + prerender semua halaman |
-| `npm run start` | Jalankan hasil build |
-| `npm run lint` | `next lint` — *ESLint belum dikonfigurasi di repo ini* |
+| Perintah               | Fungsi                                            |
+| ---------------------- | ------------------------------------------------- |
+| `npm run dev`          | Development server di port 3000                   |
+| `npm run build`        | Build production + prerender semua halaman        |
+| `npm run start`        | Jalankan hasil build                              |
+| `npm run lint`         | ESLint (`next/core-web-vitals` + aturan Prettier) |
+| `npm run lint:fix`     | ESLint dengan `--fix`                             |
+| `npm run format`       | Rapikan seluruh file dengan Prettier              |
+| `npm run format:check` | Cek format tanpa mengubah file                    |
+
+### Lint & format
+
+- Konfigurasi ESLint ada di `.eslintrc.json`: `next/core-web-vitals` + `eslint-config-prettier` (supaya aturan yang bentrok dengan Prettier dimatikan), ditambah `globals` untuk `gsap`, `ScrollTrigger`, dan `Lenis` yang dimuat dari CDN di `pages/_document.js`.
+- Gaya kode Prettier ada di `.prettierrc.json`: tanpa titik koma, kutip tunggal, `printWidth` 120, `endOfLine: auto` supaya aman dipakai di Windows (CRLF) maupun Linux/macOS (LF).
+- `npm run lint` sengaja dibiarkan memunculkan **warning** `@next/next/no-img-element`, karena halaman memang memakai `<img>` biasa dengan `loading="lazy"` dan gambar yang sudah dikecilkan manual — bukan `next/image`.
 
 ## Struktur
 

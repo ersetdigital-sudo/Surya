@@ -1,0 +1,13 @@
+# Dependencies & hasil build
+node_modules
+.next
+out
+
+# Lockfile diatur npm, jangan diformat ulang
+package-lock.json
+
+# Aset statis (font, gambar, favicon)
+public
+
+# Screenshot verifikasi lokal
+_verify-*.png

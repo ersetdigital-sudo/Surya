@@ -1,77 +1,305 @@
-.marq{display:flex;gap:3rem;width:max-content;animation:scroll 34s linear infinite}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.marq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marq {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll 34s linear infinite;
+}
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marq-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
 
-.row{position:relative;border-top:1px solid var(--line);padding:1.9rem 0;transition:.45s cubic-bezier(.2,.8,.2,1)}
-.row:hover{padding-left:1.2rem}
-.row:before{content:"";position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,rgba(217,242,74,.08),transparent);transition:.45s}
-.row:hover:before{width:100%}
-.row .arrow{opacity:0;transform:translateX(-8px);transition:.4s}
-.row:hover .arrow{opacity:1;transform:none}
+.row {
+  position: relative;
+  border-top: 1px solid var(--line);
+  padding: 1.9rem 0;
+  transition: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.row:hover {
+  padding-left: 1.2rem;
+}
+.row:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, rgba(217, 242, 74, 0.08), transparent);
+  transition: 0.45s;
+}
+.row:hover:before {
+  width: 100%;
+}
+.row .arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: 0.4s;
+}
+.row:hover .arrow {
+  opacity: 1;
+  transform: none;
+}
 
-.ltr{display:inline-block;will-change:transform,opacity}
+.ltr {
+  display: inline-block;
+  will-change: transform, opacity;
+}
 
-.term{border:1px solid var(--line);border-radius:16px;background:rgba(10,10,12,.72);backdrop-filter:blur(10px);overflow:hidden}
-.term-bar{display:flex;gap:.4rem;align-items:center;padding:.65rem .9rem;border-bottom:1px solid var(--line)}
-.term-dot{width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.18)}
-.term-body{padding:1rem 1.1rem;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.85;color:#a1a1aa;min-height:168px}
-.caret{display:inline-block;width:7px;height:14px;background:var(--lime);vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.tok-k{color:var(--violet)}.tok-s{color:var(--lime)}.tok-c{color:#52525b}
+.term {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+.term-bar {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+.term-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.term-body {
+  padding: 1rem 1.1rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  line-height: 1.85;
+  color: #a1a1aa;
+  min-height: 168px;
+}
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: var(--lime);
+  vertical-align: -2px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.tok-k {
+  color: var(--violet);
+}
+.tok-s {
+  color: var(--lime);
+}
+.tok-c {
+  color: #52525b;
+}
 
-.mag{will-change:transform}
-.tilt{transform-style:preserve-3d;will-change:transform}
+.mag {
+  will-change: transform;
+}
+.tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
 
-h1,h2,h3,.dsp{line-height:.95}
+h1,
+h2,
+h3,
+.dsp {
+  line-height: 0.95;
+}
 
 /* judul CTA: ukuran fluid + leading lega di layar kecil supaya teks outline nggak dempet */
-.cta-title{font-size:clamp(1.35rem,7.2vw,3.75rem);line-height:1.08;text-wrap:balance}
-@media (min-width:768px){.cta-title{line-height:.95}}
+.cta-title {
+  font-size: clamp(1.35rem, 7.2vw, 3.75rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .cta-title {
+    line-height: 0.95;
+  }
+}
 
 /* mobile nav dropdown — pakai CSS sendiri biar nggak bergantung utility runtime */
-.mnav{position:absolute;left:1rem;right:1rem;top:100%;z-index:50;margin-top:.5rem;display:flex;flex-direction:column;
-  padding:.4rem;border:1px solid rgba(255,255,255,.14);border-radius:22px;
-  background:rgba(9,9,11,.97);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
-  box-shadow:0 24px 60px rgba(0,0,0,.65);
-  opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none;
-  transition:opacity .22s ease,transform .22s ease,visibility .22s}
-.mnav.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
-.mnav a{display:flex;align-items:center;min-height:48px;padding:0 1rem;border-radius:14px;font-size:15px;color:#e4e4e7;
-  transition:background .25s,color .25s}
-.mnav a:hover,.mnav a:focus-visible{color:#fff;background:rgba(255,255,255,.07)}
-.mnav a + a{box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
-.nav-scrim{position:fixed;inset:0;z-index:30;background:rgba(4,4,6,.55);opacity:0;pointer-events:none;transition:opacity .22s}
-.nav-scrim.open{opacity:1;pointer-events:auto}
-@media (min-width:768px){.mnav,.nav-scrim{display:none !important}}
-@media (prefers-reduced-motion:reduce){.mnav,.nav-scrim{transition:none}}
+.mnav {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 100%;
+  z-index: 50;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background: rgba(9, 9, 11, 0.97);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s;
+}
+.mnav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+.mnav a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 1rem;
+  border-radius: 14px;
+  font-size: 15px;
+  color: #e4e4e7;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.mnav a:hover,
+.mnav a:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+.mnav a + a {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(4, 4, 6, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s;
+}
+.nav-scrim.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .mnav,
+  .nav-scrim {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mnav,
+  .nav-scrim {
+    transition: none;
+  }
+}
 
 /* tombol navbar — CSS sendiri biar glow, gradient, dan animasi ikon nggak
    bergantung utility runtime (sama alasannya dengan .mnav di atas) */
-.nav-btn{display:inline-flex;align-items:center;gap:.5rem;height:2.5rem;padding:0 .9rem;
-  border-radius:999px;font-size:13px;font-weight:500;line-height:1;white-space:nowrap;color:#e4e4e7;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .3s,border-color .3s,box-shadow .3s,color .3s}
-.nav-btn:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: #e4e4e7;
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.3s;
+}
+.nav-btn:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
 
-.nav-btn--ghost{border:1px solid rgba(255,255,255,.14);
-  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
-.nav-btn--ghost:hover{border-color:rgba(255,255,255,.26);color:#fff;transform:translateY(-1px);
-  box-shadow:0 8px 22px -12px rgba(0,0,0,.95)}
-.nav-btn__icon{display:grid;place-items:center;width:1.5rem;height:1.5rem;
-  border:1px solid rgba(255,255,255,.09);border-radius:999px;background:rgba(255,255,255,.06);
-  transition:background-color .3s,border-color .3s,color .3s}
-.nav-btn__icon svg{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-.nav-btn--ghost:hover .nav-btn__icon{background:rgba(217,242,74,.16);border-color:rgba(217,242,74,.4);color:var(--lime)}
-.nav-btn--ghost:hover .nav-btn__icon svg{transform:translateY(2px)}
+.nav-btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+}
+.nav-btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.26);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -12px rgba(0, 0, 0, 0.95);
+}
+.nav-btn__icon {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+.nav-btn__icon svg {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-btn--ghost:hover .nav-btn__icon {
+  background: rgba(217, 242, 74, 0.16);
+  border-color: rgba(217, 242, 74, 0.4);
+  color: var(--lime);
+}
+.nav-btn--ghost:hover .nav-btn__icon svg {
+  transform: translateY(2px);
+}
 
-.nav-btn--primary{padding:0 1.15rem;color:#060607;font-weight:600;
-  background:linear-gradient(180deg,#e9ff74,#cfe93f);
-  box-shadow:0 8px 24px -12px rgba(217,242,74,.9),inset 0 1px 0 rgba(255,255,255,.45)}
-.nav-btn--primary:hover{transform:translateY(-1px);background:linear-gradient(180deg,#f0ff8a,#d6ec4c);
-  box-shadow:0 12px 30px -12px rgba(217,242,74,1),inset 0 1px 0 rgba(255,255,255,.55)}
+.nav-btn--primary {
+  padding: 0 1.15rem;
+  color: #060607;
+  font-weight: 600;
+  background: linear-gradient(180deg, #e9ff74, #cfe93f);
+  box-shadow:
+    0 8px 24px -12px rgba(217, 242, 74, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+.nav-btn--primary:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #f0ff8a, #d6ec4c);
+  box-shadow:
+    0 12px 30px -12px rgba(217, 242, 74, 1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
 
 /* :active ditaruh paling akhir supaya feedback tekan tetap menang saat tombol di-hover */
-.nav-btn:active{transform:translateY(0) scale(.98)}
+.nav-btn:active {
+  transform: translateY(0) scale(0.98);
+}
 /* di layar mobile tingginya disamakan dengan tombol hamburger (44px) */
-@media (max-width:767.98px){.nav-btn{height:2.75rem}}
-@media (prefers-reduced-motion:reduce){.nav-btn,.nav-btn__icon,.nav-btn__icon svg{transition:none}}
+@media (max-width: 767.98px) {
+  .nav-btn {
+    height: 2.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-btn,
+  .nav-btn__icon,
+  .nav-btn__icon svg {
+    transition: none;
+  }
+}
