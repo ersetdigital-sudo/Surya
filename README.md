@@ -2,35 +2,51 @@
 
 # Surya — Full-Stack Software Engineer
 
-**Website portofolio & case study.** Dibangun untuk menunjukkan sistem yang benar-benar jalan di production — bukan demo.
+**Software yang dipakai tiap hari, bukan demo yang cuma bagus di screenshot.**
+
+E-commerce · POS & inventory · Rental & booking · Dashboard data · Integrasi API kurir
 
 [![Live](https://img.shields.io/badge/live-surya32.vercel.app-d9f24a?style=flat-square&labelColor=060607)](https://surya32.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.5-000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18.3.1-087ea4?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Deploy](https://img.shields.io/badge/deploy-Vercel-000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
-[![Node](https://img.shields.io/badge/node-18.17%2B-339933?style=flat-square&logo=node.js&logoColor=white)](#menjalankan-lokal)
+[![Node](https://img.shields.io/badge/node-18.17%2B-339933?style=flat-square&logo=node.js&logoColor=white)](#menjalankan-di-lokal)
 
 </div>
 
 ---
 
-## Ringkasan
+## Cara saya sampai ke software
 
-Repo ini adalah sumber dari **[surya32.vercel.app](https://surya32.vercel.app/)** — portofolio pribadi sekaligus tempat case study teknis ditulis lengkap: konteks bisnis, keputusan arsitektur, dan hasil di production.
+Sepuluh tahun saya menjalankan bisnis e-commerce sendiri — tim sampai 30 orang, 1.000 pesanan per hari, omzet stabil Rp150–200 juta per bulan. Dari sana satu hal jadi jelas: software yang berguna bukan yang fiturnya paling banyak, tapi yang **menghapus pekerjaan manual di alur yang paling sering dipakai**.
 
-Dibangun dengan Next.js Pages Router tanpa dependency tambahan selain `next` / `react` / `react-dom`. Animasi, utility CSS, dan smooth scroll dimuat sebagai runtime dari CDN (`pages/_document.js`), sementara seluruh font di-host sendiri di `public/fonts` supaya tidak bergantung ke Google Fonts saat runtime.
+Hari ini saya membangun sistem seperti itu untuk orang lain: katalog yang tidak bisa selesai dengan daftar produk biasa, checkout tanpa payment gateway, stok yang tidak boleh minus, ongkir dari dua penyedia berbeda, dan laporan yang harus benar-benar cocok dengan uang di rekening.
 
-## Halaman
+<sub>**In English:** a portfolio of production systems — e-commerce, POS, rental booking, and data dashboards — with long-form case studies covering business context, architecture decisions, and what happened after release.</sub>
 
-| Rute               | Isi                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| `/`                | Halaman utama: hero, about, stack, 7 selected projects, experience, API & automation, contact            |
-| `/cv`              | CV satu halaman, siap di-print jadi PDF (`window.print()`)                                               |
-| `/samaqu`          | Case study **SAMAQU** — platform e-commerce menswear muslim, live di [samaqu.id](https://www.samaqu.id/) |
-| `/erlangga-rental` | Case study **Erlangga Rental Mobil** — booking, armada, pembayaran, laporan; PWA + OCR KTP               |
-| `/ut-majene`       | Case study **Dashboard Registrasi Mahasiswa UT Majene** — pipeline Excel → PostgreSQL, analytics, RBAC   |
-| `/laptop-store`    | Case study **Laptop Store Management System** — POS, service, inventory, purchasing, laporan keuangan    |
+## Isi repo ini
+
+Repo ini adalah sumber dari **[surya32.vercel.app](https://surya32.vercel.app/)**. Dua bagian utamanya:
+
+**Halaman utama** menampilkan tujuh sistem yang sudah dibangun, pengalaman kerja, dan integrasi API yang dipakai di production — lengkap dengan angka, bukan cuma nama teknologi. **[`/cv`](https://surya32.vercel.app/cv)** menyediakan CV satu halaman yang bisa langsung di-print jadi PDF.
+
+**Empat case study** menuliskan project secara utuh: masalah bisnisnya apa, keputusan teknisnya kenapa diambil, dan apa konsekuensinya setelah rilis. Bukan daftar fitur — karena keputusan teknis cuma berarti kalau dikaitkan dengan masalah yang mau diselesaikan.
+
+| Rute                                                             | Project                                           | Yang bisa dibaca di dalamnya                                                                                                                                                            |
+| ---------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`/samaqu`](https://surya32.vercel.app/samaqu)                   | **SAMAQU** — e-commerce menswear muslim           | Fitur Create Your Price yang divalidasi ulang di server, stok atomik dengan row lock, integrasi J&T Express dan RajaOngkir. Jalan di production di [samaqu.id](https://www.samaqu.id/). |
+| [`/erlangga-rental`](https://surya32.vercel.app/erlangga-rental) | **Erlangga Rental Mobil** — booking & operasional | Scan KTP lewat OCR, nota thermal 80mm, laporan yang tidak boleh kena timezone drift. Dipakai langsung dari HP sebagai PWA.                                                              |
+| [`/ut-majene`](https://surya32.vercel.app/ut-majene)             | **Dashboard Registrasi Mahasiswa UT Majene**      | Mengubah file Excel yang berserakan jadi pipeline data, dashboard monitoring, dan laporan yang bisa diekspor institusi.                                                                 |
+| [`/laptop-store`](https://surya32.vercel.app/laptop-store)       | **Laptop Store Management System**                | POS, service, inventory, purchasing, dan laporan keuangan dalam satu alur kerja.                                                                                                        |
+
+### Screenshot di dalam case study
+
+| ![Halaman utama SAMAQU](public/projects/samaqu/01-home.jpg) | ![Dashboard admin SAMAQU](public/projects/samaqu/10-admin-dashboard.png) |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Halaman utama SAMAQU — `/samaqu`                            | Dashboard admin, 13 panel operasional — `/samaqu`                        |
+
+Screenshot di setiap case study diambil langsung dari sistem yang berjalan, bukan mockup. Klik gambar di halamannya untuk melihat ukuran penuh.
 
 ## Stack
 
@@ -42,9 +58,11 @@ Dibangun dengan Next.js Pages Router tanpa dependency tambahan selain `next` / `
 | Font      | Self-hosted di `public/fonts`: Geist, Geist Mono, Bricolage Grotesque, Barlow, IBM Plex Mono |
 | Hosting   | Vercel (build otomatis dari branch `main`)                                                   |
 
-## Menjalankan lokal
+Tidak ada dependency tambahan selain `next` / `react` / `react-dom`. Animasi dan utility CSS dimuat sebagai runtime dari CDN (`pages/_document.js`), sedangkan seluruh font di-host sendiri supaya tampilan tidak bergantung ke Google Fonts.
 
-Butuh **Node.js ≥ 18.17** (syarat Next.js 14).
+## Menjalankan di lokal
+
+Butuh **Node.js ≥ 18.17** (syarat Next.js 14). Tidak ada environment variable dan tidak ada layanan eksternal yang perlu dinyalakan — clone, install, jalan.
 
 ```bash
 git clone https://github.com/ersetdigital-sudo/Surya.git
@@ -59,8 +77,6 @@ Build production:
 npm run build
 npm run start
 ```
-
-Tidak ada environment variable yang dibutuhkan.
 
 ### Scripts
 
@@ -110,7 +126,7 @@ Tidak ada environment variable yang dibutuhkan.
 
 ## Konvensi
 
-Hal-hal yang dipakai konsisten di seluruh halaman:
+Aturan main yang bikin repo ini tetap konsisten saat diisi project baru:
 
 - **Token warna** ada di `styles/theme.css` (`--lime`, `--violet`, `--ink`, `--dim`, `--line`) — jangan hardcode warna baru kalau token-nya sudah ada.
 - **Chrome situs** (aurora, noise, progress bar, kursor kustom) dipasang sekali di `pages/_app.js`, jadi semua halaman otomatis dapat. Halaman yang memakai desain sendiri boleh mematikannya secara lokal — contohnya `styles/samaqu.css` yang menyembunyikannya lewat `body:has(.sq)`.
@@ -118,7 +134,7 @@ Hal-hal yang dipakai konsisten di seluruh halaman:
 - **Gambar** disimpan di `public/projects/<nama-project>/`, dan yang ada di bawah fold dipasang `loading="lazy"`.
 - **Kompresi**: screenshot masuk sebagai JPEG/PNG yang sudah dikecilkan; jaga ukuran file tetap di kisaran puluhan sampai ratusan KB.
 
-### Menambah case study baru
+### Menulis case study baru
 
 1. Buat `pages/<slug>/index.js`.
 2. Pakai `components/CaseShell` (judul + deskripsi untuk `<Head>`, header, dan footer otomatis ikut).
@@ -130,13 +146,15 @@ Hal-hal yang dipakai konsisten di seluruh halaman:
 
 Deploy otomatis lewat Vercel: setiap push ke `main` memicu build production. Tidak ada konfigurasi khusus — preset Next.js, build command default, output default.
 
-## Roadmap
+## Yang sedang dikerjakan
 
 - Case study untuk project yang belum punya halaman: Eira Project, Warung Efge, dan Game Top-Up Platform Network (20 website).
 - Menyeragamkan gaya halaman case study (saat ini `/samaqu` memakai sistem desain sendiri).
 - Halaman layanan + panduan harga, form kontak, dan konfigurasi analytics.
 
 ## Kontak
+
+Punya sistem yang masih jalan manual, atau data yang masih berserakan di Excel? Ceritakan alurnya — saya bantu petakan dan bangun.
 
 - WhatsApp — [085603324143](https://wa.me/6285603324143)
 - Email — [ersetdigital@gmail.com](mailto:ersetdigital@gmail.com)
