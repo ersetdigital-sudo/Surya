@@ -1,6 +1,7 @@
 import '../styles/fonts.css'
 import '../styles/theme.css'
 import '../styles/home.css'
+import '../styles/samaqu.css'
 
 export default function App({ Component, pageProps }) {
   return (
